@@ -1,0 +1,24 @@
+{
+  "name": "codes.kiwi",
+  "version": "1.0.0",
+  "description": "Get a free codes.kiwi subdomain today!",
+  "private": true,
+  "main": "update_records.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finncodes/codes.kiwi.git"
+  },
+  "author": "Finn Greig",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/finncodes/codes.kiwi/issues"
+  },
+  "homepage": "https://github.com/finncodes/codes.kiwi#readme",
+  "dependencies": {
+    "cloudflare": "^2.9.1",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/cloudflare": "^2.7.6"
+  }
+}

@@ -1,0 +1,7 @@
+[
+    {
+        "name": "example",
+        "target": "example.com",
+        "noCloudflare": true
+    }
+]
