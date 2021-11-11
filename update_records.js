@@ -17,7 +17,7 @@ async function updateRecords() {
         const record = records.result.find(r => r.name === `${cname.name}.codes.kiwi`);
         if (record) {
             if (record.content !== cname.target || record.proxied !== !cname.noCloudflare) {
-                console.log(`Updating ${cname.name}.codes.kiwi`);
+                console.log(`Updating ${record.name}`);
                 await cf.dnsRecords.edit(config.ZONE_ID, record.id, {
                     type: 'CNAME',
                     name: `${record.name}`,
@@ -39,11 +39,28 @@ async function updateRecords() {
     }
 }
 
+async function deleteRecords() {
+    const records = await cf.dnsRecords.browse(config.ZONE_ID);
+    const recordsToDelete = records.result.filter(r => !config.CNAMES.map(c => `${c.name}.codes.kiwi`).includes(r.name));
+
+    for (let i = 0; i < recordsToDelete.length; i++) {
+        const record = recordsToDelete[i];
+        console.log(`Deleting ${record.name}`);
+        await cf.dnsRecords.del(config.ZONE_ID, record.id);
+    }
+}
+
 // useful for debug
 async function viewRecords() {
     console.log(await cf.dnsRecords.browse(config.ZONE_ID));
 }
 
+console.log("Beginning record updates...")
 updateRecords()
+    .then(() => console.log('Done'))
+    .catch(err => console.error(err));
+
+console.log("Deleting removed records...")
+deleteRecords()
     .then(() => console.log('Done'))
     .catch(err => console.error(err));
