@@ -1,0 +1,21 @@
+name: Deployment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+        cache: 'npm'
+    - run: npm install
+    - run: node ./update_records.js
+      env:
+        CLOUDFLARE_TOKEN: ${{ secrets.CloudflareToken }}
+        ZONE_ID: ${{ secrets.ZoneID }}
