@@ -17,5 +17,5 @@ jobs:
     - run: npm install
     - run: node ./update_records.js
       env:
-        CLOUDFLARE_TOKEN: ${{ secrets.CloudflareToken }}
-        ZONE_ID: ${{ secrets.ZoneID }}
+        CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+        ZONE_ID: ${{ secrets.ZONE_ID }}
