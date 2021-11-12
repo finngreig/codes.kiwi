@@ -1,4 +1,4 @@
-const CNAMES = require('./cnames.json');
+const CNAMES = require('../cnames.json');
 
 /**
  * Check for duplicates and return a boolean

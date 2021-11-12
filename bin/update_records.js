@@ -6,7 +6,7 @@ const cf = require('cloudflare')({
 
 const config = {
     ZONE_ID: process.env.ZONE_ID,
-    CNAMES: require('./cnames.json')
+    CNAMES: require('../cnames.json')
 };
 
 async function updateRecords() {

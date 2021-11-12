@@ -15,7 +15,7 @@ jobs:
         node-version: '14'
         cache: 'npm'
     - run: npm install
-    - run: node ./update_records.js
+    - run: node ./bin/update_records.js
       env:
         CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
         ZONE_ID: ${{ secrets.ZONE_ID }}

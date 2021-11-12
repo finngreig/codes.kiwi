@@ -1,7 +1,7 @@
 const Ajv = require('ajv');
 const ajv = new Ajv({ allErrors: true });
 
-const CNAMES = require("./cnames.json");
+const CNAMES = require('../cnames.json');
 
 const recordSchema = {
     $id: "https://codes.kiwi/schemas/record.json",

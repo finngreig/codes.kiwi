@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Duplicate Check
+name: Validation
 
 # Controls when the workflow will run
 on:
@@ -15,8 +15,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "check"
-  check:
+
+  check_duplicates:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -26,5 +26,20 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
+          cache: 'npm'
       - run: npm install
-      - run: node ./check_duplicates.js
+      - run: node ./bin/check_duplicates.js
+  
+  validate_json:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: npm install
+      - run: node ./bin/validate_cnames.js
