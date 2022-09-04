@@ -1,3 +1,8 @@
+# NOTICE
+This repository is **now archived** as it hadn't gathered as much attention as I'd hoped :(
+
+---
+
 ![codes.kiwi - free subdomains](https://img.shields.io/badge/codes.kiwi-free%20subdomains-00ba31?style=for-the-badge)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/finncodes?color=00ba31&label=Donate&logo=githubsponsors&style=for-the-badge)](https://github.com/sponsors/finncodes)
 
